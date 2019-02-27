@@ -13,9 +13,7 @@ import java.util.ArrayList;
 public class BidHandler {
     private static BidDB bidDB;
 
-    public static void init() {
-        bidDB = BidDB.getInstance();
-    }
+    public static void init() { bidDB = BidDB.getInstance(); }
 
     public static void addNewBid(String data) throws JSONException {
         JSONObject newBidData = new JSONObject(data);
