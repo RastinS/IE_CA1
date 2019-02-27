@@ -1,4 +1,4 @@
-package Repositories;
+package Handlers;
 
 import Databases.ProjectDB;
 import Models.Project;
@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ProjectRepo {
+public class ProjectHandler {
     private static ProjectDB projectDB;
 
     public static void init() {

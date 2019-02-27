@@ -1,4 +1,4 @@
-package Repositories;
+package Handlers;
 
 import Databases.UserDB;
 import Models.Skill;
@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class UserRepo {
+public class UserHandler {
     private static UserDB userDB;
 
     public static void init() {

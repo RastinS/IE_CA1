@@ -1,4 +1,4 @@
-package Repositories;
+package Handlers;
 
 import Databases.BidDB;
 import Models.Bid;
@@ -10,7 +10,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class BidRepo {
+public class BidHandler {
     private static BidDB bidDB;
 
     public static void init() {
@@ -19,8 +19,8 @@ public class BidRepo {
 
     public static void addNewBid(String data) throws JSONException {
         JSONObject newBidData = new JSONObject(data);
-        User user = UserRepo.findUser(newBidData.getString("biddingUser"));
-        Project project = ProjectRepo.findProject(newBidData.getString("projectTitle"));
+        User user = UserHandler.findUser(newBidData.getString("biddingUser"));
+        Project project = ProjectHandler.findProject(newBidData.getString("projectTitle"));
 
         if(isUserValidForProject(user, project)) {
             Bid newBid = new Bid();
@@ -34,7 +34,7 @@ public class BidRepo {
 
     public static void auction(String data) throws JSONException {
         JSONObject auctionData = new JSONObject(data);
-        ArrayList<Bid> projectBids = bidDB.getProjectBids(ProjectRepo.findProject(auctionData.getString("projectTitle")));
+        ArrayList<Bid> projectBids = bidDB.getProjectBids(ProjectHandler.findProject(auctionData.getString("projectTitle")));
         Bid bestBid = findBestBid(projectBids);
         System.out.println(bestBid.getUser().getUserName());
     }

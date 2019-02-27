@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import javafx.util.Pair;
-import Repositories.*;
+import Handlers.*;
 import org.json.JSONException;
 
 public class Main {
@@ -14,9 +14,9 @@ public class Main {
     }
 
     public static void main (String[] args) throws JSONException {
-        UserRepo.init();
-        ProjectRepo.init();
-        BidRepo.init();
+        UserHandler.init();
+        ProjectHandler.init();
+        BidHandler.init();
 
 
         while(!isFinished) {
@@ -25,19 +25,19 @@ public class Main {
 
             switch (command.getKey()) {
                 case "register":
-                    UserRepo.addNewUser(command.getValue());
+                    UserHandler.addNewUser(command.getValue());
                     break;
 
                 case "addProject":
-                    ProjectRepo.addNewProject(command.getValue());
+                    ProjectHandler.addNewProject(command.getValue());
                     break;
 
                 case "bid":
-                    BidRepo.addNewBid(command.getValue());
+                    BidHandler.addNewBid(command.getValue());
                     break;
 
                 case "auction":
-                    BidRepo.auction(command.getValue());
+                    BidHandler.auction(command.getValue());
                     isFinished = true;
                     break;
             }
